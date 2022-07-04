@@ -788,10 +788,10 @@ function step (dt) {
     blit(velocity.write.fbo);
     velocity.swap();*/
 
-    divergenceProgram.bind();
+    /*divergenceProgram.bind();
     gl.uniform2f(divergenceProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY);
     gl.uniform1i(divergenceProgram.uniforms.uVelocity, velocity.read.attach(0));
-    blit(divergence.fbo);
+    blit(divergence.fbo);*/
 
     /*clearProgram.bind();
     gl.uniform1i(clearProgram.uniforms.uTexture, pressure.read.attach(0));
@@ -799,14 +799,14 @@ function step (dt) {
     blit(pressure.write.fbo);
     pressure.swap();*/
 
-    pressureProgram.bind();
+    /*pressureProgram.bind();
     gl.uniform2f(pressureProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY);
     gl.uniform1i(pressureProgram.uniforms.uDivergence, divergence.attach(0));
     for (var i = 0; i < config.PRESSURE_ITERATIONS; i++) {
         gl.uniform1i(pressureProgram.uniforms.uPressure, pressure.read.attach(1));
         blit(pressure.write.fbo);
         pressure.swap();
-    }
+    }*/
 
     gradienSubtractProgram.bind();
     gl.uniform2f(gradienSubtractProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY);
